@@ -1,0 +1,87 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nx"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "rules": {
+        "@nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts"],
+      "extends": ["plugin:@nx/typescript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.ts"],
+      "extends": ["love"],
+      "rules": {
+        "@typescript-eslint/method-signature-style": [ "error", "method" ],
+        "@typescript-eslint/no-explicit-any": [ "error" ],
+        "@typescript-eslint/no-confusing-void-expression": [
+          "error", {
+            "ignoreArrowShorthand": true
+          }
+        ],
+        "@typescript-eslint/no-unsafe-argument": [ "off" ],
+        "@typescript-eslint/no-unused-vars": [ "error" ],
+        "@typescript-eslint/quotes": [ "error", "single" ],
+        "@typescript-eslint/semi": [ "error", "always" ],
+        "@typescript-eslint/space-before-function-paren": [ "error", "never" ],
+        "@typescript-eslint/unbound-method": [ "error", { "ignoreStatic": true } ],
+        "curly": [ "error", "all" ],
+        "import/no-unresolved": 0,
+        "import/named": 0,
+        "multiline-ternary": [ "warn", "always-multiline" ],
+        "no-extend-native": [ "error", { "exceptions": [ "String" ] } ],
+        "no-extra-parens": [ "error", "all" ],
+        "no-mixed-spaces-and-tabs": [ "warn", "smart-tabs" ],
+        "no-tabs": 0,
+        "quotes": [ "error", "single" ],
+        "semi": [ "error", "always" ],
+        "@typescript-eslint/consistent-type-imports": 0,
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          {
+            "accessibility": "explicit",
+            "overrides": { "constructors": "no-public" }
+          }
+        ],
+        "@typescript-eslint/prefer-nullish-coalescing": ["warn"],
+        "@typescript-eslint/indent": [ "error", "tab" ],
+        "@typescript-eslint/member-delimiter-style": [
+          "error",
+          {
+            "multiline": {
+              "delimiter": "semi",
+              "requireLast": true
+            },
+            "singleline": {
+              "delimiter": "semi",
+              "requireLast": false
+            }
+          }
+        ]
+      },
+      "parserOptions": {
+        "ecmaVersion": "latest",
+        "project": [ "./tsconfig.eslint.json" ],
+        "sourceType": "module"
+      }
+    }
+  ]
+}
