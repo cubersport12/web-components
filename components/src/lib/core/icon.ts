@@ -4,6 +4,8 @@ import { BaseElement } from './base-element';
 
 @customElement('cub-icon')
 export class Icon extends BaseElement {
+	protected override readonly _useShadowDom = false;
+
 	@property({ type: String })
 	public webFontIcon: string | undefined;
 

@@ -9,10 +9,6 @@ export default {
       <cub-icon webFontIcon="fa-solid fa-house"></cub-icon>
       Применить
     </cub-flat-button>
-    <cub-flat-button>
-      <cub-icon webFontIcon="fa-solid fa-times"></cub-icon>
-      Применить
-    </cub-flat-button>
   `
 } satisfies Meta;
 
