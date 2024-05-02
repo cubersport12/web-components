@@ -1,13 +1,19 @@
 import { LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
-import { appearanceAttributeConverter, colorAttributeConverter, CubAppearance, CubColor, hoverStyle } from '../core';
-import { styles } from './styles';
+import {
+	appearanceAttributeConverter,
+	colorAttributeConverter,
+	CubAppearance,
+	CubColor, CubSelectors,
+	CubStyles
+} from '../core';
+import { getThemeColorButtonSelector, styles } from './styles';
 
 export class CubButton extends LitElement {
 	public static override styles = [
 		styles.appearance,
 		styles.button,
-		hoverStyle
+		CubStyles.hoverStyle
 	];
 
 	@property({ type: String, converter: appearanceAttributeConverter })
@@ -17,6 +23,11 @@ export class CubButton extends LitElement {
 	public color: CubColor = 'primary';
 
 	protected _getClasses(): string[] {
-		return ['cub-hover', 'cub-button', `cub-button-${this.color}`, `cub-button-${this.appearance}`];
+		return [
+			CubSelectors.hover,
+			'cub-button',
+			getThemeColorButtonSelector(this.color),
+			`cub-${this.appearance}-button`
+		];
 	}
 }

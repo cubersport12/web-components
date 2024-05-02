@@ -3,8 +3,6 @@ import { Preview } from '@storybook/web-components';
 import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css'
 
 const preview: Preview = {
-  // The default value of the theme arg for all stories
-  args: { theme: 'light' }
 };
 
 export default preview;

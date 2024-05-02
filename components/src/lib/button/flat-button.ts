@@ -1,4 +1,4 @@
-import { css, CSSResultArray, html, TemplateResult } from 'lit';
+import { css, html, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { CubButton } from './button';
 
