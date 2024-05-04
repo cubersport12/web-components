@@ -9,7 +9,7 @@ export const getFilledCss = (): CSSResultArray => (Object.keys(CubStyles.themeCo
 	.map(x => unsafeCSS(`
 	  .cub-filled-button.${getThemeColorButtonSelector(x)} {
 	    background-color: ${CubSelectors.getThemeBgColor(x)};
-	    color: ${CubSelectors.getThemeTextColor(x)};
+	    color: ${CubStyles.getThemeTextColor(x)};
 	    border: none;
     }
 	`));

@@ -2,3 +2,4 @@
 
 export * from './flat-button';
 export * from './styles';
+export * from './icon-button';

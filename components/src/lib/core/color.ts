@@ -12,7 +12,7 @@ export const colorAttributeConverter: ComplexAttributeConverter<CubColor, string
 			case 'success':
 				return value as CubColor;
 			default:
-				throw new Error(`Invalid appearance value: ${value}`);
+				throw new Error(`Invalid color value: ${value}`);
 		}
 	},
 	toAttribute(value: CubColor, type?: string): string {
