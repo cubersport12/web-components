@@ -1,5 +1,5 @@
 import { CubButton } from './button';
-import { customElement, query } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators.js';
 import { css, CSSResult, html, TemplateResult, unsafeCSS } from 'lit';
 import { CubSelectors, CubSize, CubStyles } from '../core';
 
