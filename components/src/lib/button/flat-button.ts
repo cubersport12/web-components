@@ -28,7 +28,7 @@ export class FlatButton extends CubButton {
 
 	public override render(): TemplateResult {
 		return html`
-      <button role="button" class="${['cub-flat-button', CubSelectors.getThemeSize(this.size), ...this._getClasses()].join(' ')}">
+      <button type="button" ?disabled="${this.disabled}" class="${['cub-flat-button', CubSelectors.getThemeSize(this.size), ...this._getClasses()].join(' ')}">
         <slot id="button-slot"></slot>
       </button>
     `;

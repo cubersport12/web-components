@@ -17,18 +17,25 @@ export default {
 		size: {
 			options: ['large', 'medium', 'small'] as CubSize[],
 			control: 'select'
+		},
+		disabled: {
+			control: 'boolean'
 		}
 	},
 	args: {
 		color: 'primary',
 		appearance: 'filled',
-		size: 'medium'
+		size: 'medium',
+		disabled: false,
+		onclick: e => {
+			console.info(e);
+		}
 	}
 } satisfies Meta;
 
 export const FlatButton: StoryObj = {
-	render: ({ color, appearance, size }) => html`
-    <cub-flat-button color="${color}" appearance="${appearance}" size="${size}">
+	render: ({ color, appearance, size, disabled, onclick }) => html`
+    <cub-flat-button @click=${onclick} color="${color}" disabled="${disabled}" appearance="${appearance}" size="${size}">
       <cub-icon webFontIcon="fa-solid fa-house"></cub-icon>
       Применить
     </cub-flat-button>
@@ -36,8 +43,8 @@ export const FlatButton: StoryObj = {
 };
 
 export const IconButton: StoryObj = {
-	render: ({ color, appearance, size }) => html`
-    <cub-icon-button color="${color}" appearance="${appearance}" size="${size}">
+	render: ({ color, appearance, size, disabled, onclick }) => html`
+    <cub-icon-button @click=${onclick} color="${color}" disabled="${disabled}" appearance="${appearance}" size="${size}">
       <cub-icon webFontIcon="fa-solid fa-house"></cub-icon>
     </cub-icon-button>
   `

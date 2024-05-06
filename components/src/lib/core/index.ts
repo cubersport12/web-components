@@ -6,3 +6,4 @@ export * from './base-element';
 export * from './icon';
 export * from './color';
 export * from './size';
+export * from './converters';

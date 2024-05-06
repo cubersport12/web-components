@@ -11,6 +11,7 @@ type ThemeTextColorVars = Record<`${ThemeColorKey}-text-color`, `var(--cub-${key
 // eslint-disable-next-line @typescript-eslint/no-extraneous-class
 export class CubSelectors {
 	public static readonly hover = 'cub-hover';
+	public static readonly disabled = 'cub-disabled';
 
 	public static getThemeColor(color: CubColor): string {
 		return Object.keys(CubStyles.themeColors).find(x => x.includes(color)) ?? '';
@@ -62,7 +63,7 @@ export class CubStyles {
 		}, {});
 
 	public static readonly hoverStyle = unsafeCSS(`
-	  .${CubSelectors.hover}:hover {
+	  .${CubSelectors.hover}:not(.${CubSelectors.disabled}):hover {
       cursor: pointer;
       &:after {
         content: '';

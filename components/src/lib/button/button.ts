@@ -1,6 +1,6 @@
 import { property } from 'lit/decorators.js';
 import {
-	appearanceAttributeConverter, BaseElement,
+	appearanceAttributeConverter, BaseElement, booleanAttributeConverter,
 	colorAttributeConverter,
 	CubAppearance,
 	CubColor,
@@ -27,12 +27,19 @@ export class CubButton extends BaseElement {
 	@property({ type: String, converter: sizeAttributeConverter })
 	public size: CubSize = 'medium';
 
+	@property({ type: Boolean, converter: booleanAttributeConverter })
+	public disabled = false;
+
 	protected _getClasses(): string[] {
-		return [
+		const result = [
 			CubSelectors.hover,
 			'cub-button',
 			getThemeColorButtonSelector(this.color),
 			`cub-${this.appearance}-button`
 		];
+		if (this.disabled) {
+			result.push(CubSelectors.disabled);
+		}
+		return result;
 	}
 }
